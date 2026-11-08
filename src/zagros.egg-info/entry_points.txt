@@ -1,0 +1,5 @@
+[console_scripts]
+zagros = zagros.cli:main
+
+[gui_scripts]
+zagros-gui = zagros.cli:main

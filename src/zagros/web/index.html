@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>زاگرس</title>
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="grp">
+    <button id="btnOpen" title="باز کردن و اجرای یک فایل (Ctrl+O)"><b class="ic">📂</b><span class="lbl">باز کردن</span></button>
+    <button id="btnRerun" title="اجرای دوباره (F5)"><b class="ic">⟳</b><span class="lbl">اجرای دوباره</span></button>
+    <button id="btnStop" title="توقف برنامه (Ctrl+C)"><b class="ic">■</b><span class="lbl">توقف</span></button>
+    <button id="btnWatch" aria-pressed="false" title="با هر ذخیره‌ی فایل، برنامه خودکار دوباره اجرا می‌شود"><b class="ic">⚡</b><span class="lbl">اجرا با ذخیره</span></button>
+  </div>
+  <div class="grp">
+    <button id="btnResult" aria-pressed="false" title="نمایش بزرگ: فقط نتیجه‌ی برنامه، با خط بسیار درشت"><b class="ic">🖥</b><span class="lbl">نمایش بزرگ</span></button>
+    <button id="fontDec" title="کوچک‌تر (Ctrl+−)"><b class="ic">A−</b></button>
+    <button id="fontInc" title="بزرگ‌تر (Ctrl++)"><b class="ic">A+</b></button>
+  </div>
+  <div class="grp shellonly">
+    <button id="btnRepl" title="کنسول تعاملی پایتون"><b class="ic">&gt;_</b><span class="lbl">کنسول پایتون</span></button>
+    <button id="btnCopy" title="کپی همه‌ی خروجی"><b class="ic">⧉</b><span class="lbl">کپی</span></button>
+    <button id="btnSave" title="ذخیره‌ی خروجی در فایل متنی"><b class="ic">💾</b><span class="lbl">ذخیره</span></button>
+    <button id="btnClear" title="پاک‌کردن صفحه (Ctrl+L)"><b class="ic">⌫</b><span class="lbl">پاک</span></button>
+  </div>
+  <div class="grp end">
+    <span id="chip" class="chip idle"></span>
+    <button id="btnTop" aria-pressed="false" hidden title="همیشه بالای بقیه‌ی پنجره‌ها"><b class="ic">📌</b></button>
+    <button id="btnWin" hidden title="اندازه و جای پنجره"><b class="ic">▭</b><span class="lbl">پنجره</span></button>
+    <button id="btnSet" title="تنظیمات"><b class="ic">⚙</b></button>
+  </div>
+</header>
+
+<div id="popWin" class="pop" hidden>
+  <h4>اندازه</h4>
+  <div class="row"><button data-preset="small">کوچک</button><button data-preset="medium">متوسط</button><button data-preset="large">بزرگ</button></div>
+  <div class="row"><input id="winW" type="number" min="360" max="5000" aria-label="عرض"> × <input id="winH" type="number" min="240" max="5000" aria-label="ارتفاع"> <button id="winApply">اعمال</button></div>
+  <h4>جای پنجره</h4>
+  <div class="row"><button data-snap="left">نیمه‌ی چپ</button><button data-snap="center">وسط</button><button data-snap="right">نیمه‌ی راست</button></div>
+  <label class="row"><input type="checkbox" id="winLock"> قفل اندازه‌ی پنجره</label>
+  <label class="row">شفافیت <input type="range" id="winOpacity" min="30" max="100" step="5" value="100"> <span id="winOpVal">100٪</span></label>
+  <p id="winNote" class="hint" hidden>پنجره‌ی برنامه پیدا نشد؛ این امکانات فقط در حالت پنجره‌ی مستقل ویندوز کار می‌کنند.</p>
+</div>
+
+<div id="popSet" class="pop" hidden>
+  <label class="row"><input type="checkbox" id="optNorm"> ارقام فارسی ورودی ← انگلیسی (۱۲٫۵ ← 12.5)</label>
+  <label class="row"><input type="checkbox" id="optFa"> نمایش ارقام خروجی به فارسی</label>
+  <div class="row"><button id="btnTheme">پوسته</button></div>
+  <p class="about"><span id="aboutVer" dir="ltr">zagros</span> — by <a href="https://tirotir.com" target="_blank" rel="noopener noreferrer" dir="ltr">tirotir.com</a></p>
+</div>
+
+<main id="screen" role="log" aria-live="polite">
+  <div id="live" class="live"><span id="prompt"></span><input id="in" dir="auto" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="ورودی"></div>
+</main>
+
+<div id="empty" class="empty" hidden>فایل را اینجا رها کنید یا «باز کردن» را بزنید</div>
+<button id="toBottom" class="tobottom" hidden title="رفتن به آخر خروجی (Ctrl+End)">↓</button>
+<div id="toast" class="toast" role="status" hidden></div>
+<div id="drop" class="drop" hidden><div>فایل را اینجا رها کنید<small>برنامه‌ی پایتون اجرا می‌شود؛ برای فایل‌های دیگر نامشان در خط فرمان درج می‌شود (با Shift: فقط درج مسیر)</small></div></div>
+<script src="/console.js"></script>
+</body>
+</html>
