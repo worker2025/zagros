@@ -1,6 +1,8 @@
 # zagros (زاگرس)
 
-**English:** a Persian-first console for learning Python. A real command prompt (type `run program.py`,
+[![DOI](https://zenodo.org/badge/1450016849.svg)](https://doi.org/10.5281/zenodo.24078689)
+
+A Persian-first console for learning Python. A real command prompt (type `run program.py`,
 or just the file name) whose output is rendered by the browser's text engine, so mixed Persian/English
 lines, digits and punctuation come out in the right order; Python errors are explained in Persian; files
 can be dropped on the window; and a "big result" mode shows only the program's output, very large,
